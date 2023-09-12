@@ -17,13 +17,18 @@ app.use('/',routes);
 
 
 
-app.use(express.static(path.join("__dirname","./client/build")));
 
-app.get('*',function(_, res){
-     res.sendFile(path.join(__dirname + '/client/build/index.html'),function(err){
-        res.status(500).send(err);
-    });
+app.use(express.static('gmail-clone-amit.netlify.app'));
+
+// app.get('*',function(_, res){
+//      res.sendFile(path.join(__dirname + '/client/build/index.html'),function(err){
+//         res.status(500).send(err);
+//     });
+// })
+app.get('/', (req, res) => {
+    res.send("Hi this is suraj");
 })
+
 
 const PORT=process.env.PORT || 8000;
 Connection();
